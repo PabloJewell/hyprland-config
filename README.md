@@ -16,4 +16,5 @@ My personal Hyprland configuration.
 - rofi bar original is from https://github.com/adi1090x/rofi/tree/master.
 
 
-## Screenshots 
+## Screenshots
+https://github.com/PabloJewell/hyprland-config/blob/main/2026-01-03-165550_hyprshot.png
