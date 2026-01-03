@@ -18,7 +18,7 @@ My personal Hyprland configuration.
 
 ## Screenshots
 ![workspace screenshot](2026-01-03-165550_hyprshot.png)
-![s](2026-01-03-165612_hyprshot.png)
-![d](2026-01-03-165700_hyprshot.png)
-![m](2026-01-03-165851_hyprshot.png)
-![f](2026-01-03-170134_hyprshot.png)
+![swanc](2026-01-03-165612_hyprshot.png)
+![rofi menu](2026-01-03-165700_hyprshot.png)
+![rofi power menu](2026-01-03-165851_hyprshot.png)
+![hyprlock](2026-01-03-170134_hyprshot.png)
