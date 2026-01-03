@@ -22,3 +22,4 @@ My personal Hyprland configuration.
 ![rofi menu](2026-01-03-165700_hyprshot.png)
 ![rofi power menu](2026-01-03-165851_hyprshot.png)
 ![hyprlock](2026-01-03-170134_hyprshot.png)
+![home screen](2026-01-03-172042_hyprshot.png)
