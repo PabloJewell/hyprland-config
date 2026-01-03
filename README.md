@@ -13,7 +13,7 @@ My personal Hyprland configuration.
 
 - waybar needs a custom script to switch between power modes.
 
-- rofi bar is from https://github.com/adi1090x/rofi/tree/master.
+- rofi bar original is from https://github.com/adi1090x/rofi/tree/master.
 
 
 ## Screenshots 
