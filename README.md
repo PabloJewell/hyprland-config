@@ -17,4 +17,4 @@ My personal Hyprland configuration.
 
 
 ## Screenshots
-https://github.com/PabloJewell/hyprland-config/blob/main/2026-01-03-165550_hyprshot.png
+![Hyprlock Screenshot](2026-01-03-165550_hyprshot.png)
