@@ -1,0 +1,245 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 42,
+    "spacing": 0,
+
+    // --- MODULE ARRANGEMENT ---
+    "modules-left": [
+        "custom/arch",
+        "custom/separator",
+        "tray",
+        "temperature",
+        "cpu",
+        "memory",
+        "disk",
+        "custom/powerprofile",
+        "custom/root",
+        "custom/pick",
+        "custom/terminal",
+        "custom/files",
+        "custom/vscode",
+        "custom/chrome"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "clock",
+        "idle_inhibitor",
+        "pulseaudio#microphone",
+        "pulseaudio",
+        "custom/spacer",
+        "network",
+        "bluetooth",
+        "battery",
+        "backlight",
+        "custom/power"
+    ],
+
+    // --- MODULE CONFIGURATION ---
+    "clock": {
+        "format": "{:%H:%M - %d/%m}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "custom/arch": {
+        "format": "󰣇",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/launchers/type-6/launcher.sh"
+    },
+
+    "custom/separator": {
+        "format": "|",
+        "tooltip": false
+    },
+
+    "custom/spacer": {
+        "format": " ",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "active": "󰮯",
+            "default": "󰊠",
+            "empty": "󰊠"
+        },
+        "persistent-workspaces": {
+            "1": [], "2": [], "3": [], "4": [], "5": []
+        }
+    },
+
+    "temperature": {
+        "interval":2,
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°C",
+        "format": " {temperatureC}°C",
+        "tooltip": false,
+        "states": {
+            "medium": 60,
+            "critical": 80
+        },
+        "on-click": "kitty -e btop"
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": true,
+        "interval": 2,
+        "states": {
+            "medium": 50,
+            "critical": 80
+        },
+        "on-click": "kitty -e btop"
+    },
+
+    "memory": {
+        "interval":2,
+        "format": " {percentage}%",
+        "tooltip": true,
+        "states":{
+            "critical":80
+        },
+        "on-click": "kitty -e btop"
+
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": " {percentage_used}%",
+        "path": "/",
+        "on-click": "kitty -e btop"
+    },
+
+    "custom/powerprofile": {
+  "exec": "/home/tophat/.config/waybar/scripts/powerprofile.sh",
+  "return-type": "json",
+  "interval": 1,
+  "format": "{}",
+  "on-click": "/home/tophat/.config/waybar/scripts/powerprofile.sh toggle",
+  "signal": 8,
+  "tooltip": true
+},
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": true
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "󰕾",
+            "headset": "󰕾",
+            "phone": "󰕾",
+            "portable": "󰕾",
+            "car": "󰕾",
+            "default": ["󰕾", "󰕾", "󰕾"]
+        },
+        // "pamixer -t" toggles mute
+        "on-click": "pamixer -t",
+        
+        // "pamixer -i 5" increases by 5% but STOPS at 100%
+        "on-scroll-up": "pamixer -i 5",
+        
+        // "pamixer -d 5" decreases by 5%
+        "on-scroll-down": "pamixer -d 5",
+        "tooltip-format": "Volume: {volume}%"
+    },
+
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "tooltip-format": "Mic Volume: {volume}%"
+    },
+
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰈀 Connected",
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "on-click": "nm-connection-editor" 
+    },
+
+    "bluetooth": {
+        "format": "",
+        "format-connected": " {device_alias}",
+        "format-disabled": "󰂲",
+        "on-click": "blueman-manager",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+    "backlight": {
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "tooltip-format": "Brightness: {percent}%",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "~/.config/rofi/powermenu/type-5/powermenu.sh",
+        "tooltip": false
+    },
+    "custom/root": {
+        "format": "󰚌",
+        "tooltip-format": "Run as Root",
+        "on-click": "~/.config/rofi/applets/bin/appasroot.sh"
+    },
+    "custom/pick":{
+        "format": "󰌁",
+        "padding-left" : 5,
+        "on-click": "hyprpicker -a",
+        "tooltip": true,
+        "tooltip-format": "Color Picker"
+    },
+    "custom/chrome":{
+        "format": "",
+        "tooltip-format": "chrome",
+        "on-click":"google-chrome-stable"
+    },
+    "custom/terminal":{
+        "format": "",
+        "tooltip-format":"terminal",
+        "on-click":"kitty"
+    },
+    "custom/files":{
+        "format": "",
+        "tooltip-format":"files",
+        "on-click":"nautilus"
+    },
+    "custom/vscode":{
+        "format": "",
+        "tooltip-format":"vsCode",
+        "on-click":"code"
+    }
+
+}

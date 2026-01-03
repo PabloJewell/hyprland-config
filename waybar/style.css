@@ -1,0 +1,244 @@
+* {
+    font-family: "IBM Plex Mono", "Liberation Mono", "Roboto Mono", "JetBrainsMono Nerd Font", monospace;
+    font-size: 15px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #c0caf5;
+}
+
+/* --- Container Styles --- */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: rgba(0, 0, 8, .7);
+    margin: 5px 6px;
+    padding: 0 5px;
+    border-radius: 15px;
+}
+
+/* 1. The Clock Pill */
+#clock {
+    background: rgba(0, 0, 8, .7);
+    color: #c0caf5;
+    padding: 0 15px;
+    margin-right: 10px; /* The gap between the two pills */
+    border-radius: 15px;
+}
+
+/* 2. The Icons Pill (Group) */
+#group-partials {
+    background: rgba(0, 0, 8, .7);
+    padding: 0 5px;
+    border-radius: 15px;
+}
+
+/* --- Left Modules --- */
+#custom-arch {
+    color: #1793d1;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin: 0;
+}
+
+#custom-separator {
+    color: #565f89;
+    padding: 0 2px;
+    margin: 0;
+}
+
+#temperature,
+#cpu,
+#memory,
+#disk,
+#custom-powerprofile,
+#custom-pick,
+#custom-chrome,
+#custom-terminal,
+#custom-files,
+#custom-vscode {
+    padding: 0 10px;
+    margin: 0;
+}
+
+#disk,
+#cpu {
+    color: #c0caf5;
+}
+
+#temperature {
+    color: #B19F7E;
+    transition: color 0.3s;
+}
+
+#temperature.medium,
+#cpu.medium {
+    color: #ff9e64;
+}
+
+#temperature.critical,
+#cpu.critical {
+    color: #f7768e;
+}
+
+/* --- Center Modules (Workspaces) --- */
+#workspaces {
+    background: transparent;
+}
+
+#workspaces button {
+    padding: 0 10px;
+    background: transparent;
+    color: #565f89;
+    border-radius: 15px;
+    margin: 0 2px;
+    min-width: 20px;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#workspaces button.active {
+    color: #e0af68;
+    font-size: 18px;
+    padding: 0 12px;
+}
+
+#workspaces button:hover {
+    background: rgba(17, 17, 27, 0.5);
+    color: #cdd6f4;
+    box-shadow: none;
+}
+
+/* --- Right Modules --- */
+#pulseaudio,
+#pulseaudio.microphone,
+#network,
+#bluetooth,
+#battery,
+#backlight,
+#custom-power,
+#idle_inhibitor,
+#tray {
+    padding: 0 10px;
+    margin: 0;
+}
+
+#pulseaudio {
+    color: #bb9af7;
+    font-size: 21px;
+}
+
+#pulseaudio.muted {
+    color: #565f89;
+}
+
+#pulseaudio.microphone {
+    color: #f7768e;
+    font-size: 16;
+}
+
+#battery.charging {
+    color: #7dcfff;
+}
+
+#battery.warning {
+    color: #ff9e64;
+}
+
+#battery.critical {
+    color: #f7768e;
+}
+
+#custom-power {
+    color: #f7768e;
+    margin-right: 10px;
+}
+#custom-root {
+    color: #f7768e; /* Tokyo Night Red */
+    padding-left: 10px;
+    padding-right: 15px;
+    font-size: 18px;
+    font-family: "JetBrainsMono Nerd Font", "FontAwesome", sans-serif;
+}
+#custom-powerprofile {
+    padding-right: 15px;
+    padding-left: 10px;
+    font-size: 18px;
+    color: #e0af68; /* Default color (Balanced/Yellow) */
+}
+#custom-powerprofile.performance {
+    color: #f7768e; /* Red */
+}
+
+#custom-powerprofile.balanced {
+    color: #e0af68; /* Yellow */
+}
+
+#custom-powerprofile.power-saver {
+    color: #9ece6a; /* Green */
+}
+
+#custom-pick {
+    color: #e0af68;
+}
+
+#temperature:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover {
+    background: rgba(17, 17, 27, 0.5);
+    transition: background 0.3s;
+}
+
+@keyframes blink {
+    to { opacity: 0.5; }
+}
+
+#temperature.critical,
+#cpu.critical,
+#memory.critical,
+#battery.critical {
+    animation: blink 1s linear infinite;
+}
+
+#custom-files{
+    color:#B19F7E;
+}
+
+#custom-terminal{
+    color:#666969 ;
+}
+
+#custom-vscode{
+    color:#23B781;
+}
+
+#custom-chrome{
+    color:#B19F7E;
+}
+
+#tray {
+    /* 1. Override default spacing */
+    padding-right: 14px; /* Space inside for the line */
+    margin-right: 8px;  /* Space outside for the next module */
+
+    /* 2. Draw the separator using a gradient */
+    /* This creates a line that is color #565f89 */
+    background: linear-gradient(to bottom, #565F89, #565F89) no-repeat;
+    
+    /* 3. Position the line: Right side, Centered vertically */
+    background-position: right center;
+
+    /* 4. Size the line: 1px width, 15px height (Matches your font size) */
+    background-size: 2px 15px; 
+}
+
+/* Stop blinking when battery is critical but charging */
+#battery.critical.charging {
+    animation: none;
+    opacity: 1;
+}
