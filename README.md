@@ -17,4 +17,8 @@ My personal Hyprland configuration.
 
 
 ## Screenshots
-![Hyprlock Screenshot](2026-01-03-165550_hyprshot.png)
+![workspace screenshot](2026-01-03-165550_hyprshot.png)
+![s](2026-01-03-165612_hyprshot.png)
+![d](2026-01-03-165700_hyprshot.png)
+![m](2026-01-03-165851_hyprshot.png)
+![f](2026-01-03-170134_hyprshot.png)
